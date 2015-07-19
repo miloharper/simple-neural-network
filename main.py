@@ -12,7 +12,6 @@ class NeuralNetwork():
 
     # The Sigmoid function, which describes an S shaped curve.
     # We pass the synaptic weights through this function to normalise them between 0 and 1.
-    # Underscore prefix makes it a private method
     def __sigmoid(self, x):
         return 1 / (1 + exp(-x))
 
@@ -60,8 +59,8 @@ if __name__ == "__main__":
     print neural_network.synaptic_weights
 
     # The training set. We have 4 examples, each consisting of 3 input values and 1 output value.
-    training_set_inputs = array([[0, 0, 1], [0, 1, 1], [1, 0, 1], [1, 1, 1], [0, 1, 0]])
-    training_set_outputs = array([[0, 0, 1, 1, 0]]).T
+    training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
+    training_set_outputs = array([[0, 1, 1, 0]]).T
 
     # Train the neural network using a training set.
     # Do it 10,000 times and make small adjustments each time.
@@ -72,4 +71,4 @@ if __name__ == "__main__":
 
     # Test the neural network with a new example.
     print "Think: "
-    print neural_network.think(array([1, 1, 0]))
+    print neural_network.think(array([1, 0, 0]))
